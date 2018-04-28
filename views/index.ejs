@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Image Search Abstracter</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+        <script type="text/javascript" src="/js/index.js" ></script>
+        <link href="/css/index.css" type="text/css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/c98d4b8a6d.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans|Poiret+One" rel="stylesheet">
+        
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="title">Image Search Abstraction Layer</h1>
+            <h3 class="sub-title">Built by <a href="https://oddert.github.io" >Robyn Veitch</a> <i class="fa fa-github" ></i> for the <a href="https://www.freecodecamp.org/" >FreeCodeCamp <i class="fa fa-free-code-camp" ></i></a> back end challenge.</h3>
+            
+            <hr>
+            
+            <h3>Please Note</h3>
+            
+            <p>The Google Image API is depreciated, their replacement is limmited to 100 requests a day. The bing equivilent removed their free tier. For lack of an internet searcher I have used the Pixabay API and substituded the Alt text for like, comment and downloads data as they do not provide Alt text.</p>
+            
+            <hr>
+            
+            <h2>Ussage:</h2>
+            <h3>To get image results:</h3>
+            <code>https://this-domain/api/search/{ your search here }?offset={ last item index (shows 10 per page) }</code>
+            
+            <p>Example:</p>
+            <a href="/api/search/funny%20cats?offset=16"><code>https://the-odd-project-oddert.c9users.io/api/search/funny%20cats?offset=16</code></a>
+            
+            <h3>To get search data:</h3>
+            <a href="/api/search_logs"><code>https://this-domain/api/search_logs</code></a>
+            
+            <hr>
+            
+            <h3>Image data looks like:</h3>
+            <code>{
+    "url": "https://pixabay.com/get/ea36b50b2af5093ed1584d05fb1d4e9ee077e0d11fac104497f4c87ba4eeb1bf_640.jpg",
+    "user": "Alexas_Fotos",
+    "tags": "litter box, toilet, cat",
+    "likes": 9,
+    "comments": 7,
+    "downloads": 279
+}</code>
+
+    `        <h3>Search query data looks like:</h3>
+            <code>{
+    "term": "hamsters",
+    "date": "2018-04-28T12:30:44.542Z"
+}</code>
+
+        <hr>
+        
+        <div class="pixabay-container">
+            <h4>This app uses the api and resources of Pixabay</h3>
+            <a href="https://pixabay.com/"><img src="https://pixabay.com/static/img/logo.png" alt="Pixabay logo" /></a>
+        </div>
+            
+        </div>
+    </body>
+</html>

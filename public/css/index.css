@@ -1,0 +1,16 @@
+code {
+    white-space: pre;
+}
+
+.title, .sub-title {
+    text-align: center;
+}
+
+.pixabay-container {
+    text-align: center;
+}
+
+img {
+    max-width: 200px;
+    margin-bottom: 50px;
+}
