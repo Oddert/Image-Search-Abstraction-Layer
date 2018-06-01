@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 
-var mongoUrl = "mongodb://Oddert:Bugatt1rulesoK@ds259499.mlab.com:59499/freecodecamp-playground";
+var mongoUrl = "mongodb://" + process.env.MADE_WITH + ":" + process.env.SECRET + "@ds259499.mlab.com:59499/freecodecamp-playground";
 
 // var imgur_CLient_Id     = "65b30e9115e68d4",
 //     imgur_Client_Secret = "b36d5a26b4784981ff79d0c48768c37bf1c3f3e3";
@@ -94,6 +94,6 @@ app.get('/api/search_logs', function (req, res) {
     })
 });
 
-app.listen(process.env.PORT | 8080, function () {
+app.listen(process.env.PORT | 3000, function () {
     console.log("Server initialised...");
 });
