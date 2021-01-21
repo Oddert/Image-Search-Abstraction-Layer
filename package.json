@@ -20,7 +20,7 @@
     "url": "git+https://github.com/Oddert/Image-Search-Abstraction-Layer.git"
   },
   "author": "Robyn Veitch",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Oddert/Image-Search-Abstraction-Layer/issues"
   },
