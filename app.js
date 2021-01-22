@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var express     = require('express'),
     app         = express(),
     ejs         = require('ejs'),
@@ -10,20 +12,13 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 
-var mongoUrl = "mongodb://Oddert:Bugatt1rulesoK@ds259499.mlab.com:59499/freecodecamp-playground";
-
-// var imgur_CLient_Id     = "65b30e9115e68d4",
-//     imgur_Client_Secret = "b36d5a26b4784981ff79d0c48768c37bf1c3f3e3";
-
-var pixabayUrl = "http://pixabay.com/api/?key=8830246-e104651caa6de75cf4d80dafd&q=yellow+flowers&image_type=photo";
-
 app.get('/', function (req, res) {
     res.render("index");
 });
 
 app.get('/api/search/:searchterm', function (req, res) {
     var termsArr = req.params.searchterm.split('%20').join('+');
-    var pixabayUrlTerm = "http://pixabay.com/api/?key=8830246-e104651caa6de75cf4d80dafd&q=" + termsArr + "&image_type=photo";
+    var pixabayUrlTerm = `http://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${termsArr}&image_type=photo`;
     
    http.get(pixabayUrlTerm, function (responce) {
        responce.pipe(bl(function (err, data) {
@@ -48,7 +43,7 @@ app.get('/api/search/:searchterm', function (req, res) {
                    downloads: each.downloads
                }
            });
-           mongo.connect(mongoUrl, function (err, client) {
+           mongo.connect(process.env.DATABASE, function (err, client) {
                if (err) throw err;
                var db = client.db('freecodecamp-playground');
                var collection = db.collection('image-abstractor-logs');
@@ -67,7 +62,7 @@ app.get('/api/search/:searchterm', function (req, res) {
 });
 
 app.get('/api/search_logs', function (req, res) {
-    mongo.connect(mongoUrl, function (err, client) {
+    mongo.connect(process.env.DATABASE, function (err, client) {
         if (err) throw err;
         var db = client.db('freecodecamp-playground');
         var collection = db.collection('image-abstractor-logs');
